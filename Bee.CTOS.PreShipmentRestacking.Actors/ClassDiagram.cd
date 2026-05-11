@@ -6,8 +6,19 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAICAAAAEAAAAAAAAACAg=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAICAAAAEAQAAAAAAACAg=</HashCode>
       <FileName>BayRestackingGrain.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Bee.CTOS.PreShipmentRestacking.Actors.StrategyOptimizingGrain">
+    <Position X="4.5" Y="0.5" Width="4.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAAAAAAAAAAAAAAIAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>StrategyOptimizingGrain.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Orleans.Configuration;
 using Phenix.Core.DependencyInjection;
@@ -20,27 +21,30 @@ namespace Bee.CTOS.PreShipmentRestacking
                 {
                     loggerConfig.ReadFrom.Configuration(context.Configuration).Enrich.FromLogContext();
                 })
-                .UseOrleans(siloBuilder =>
-                {
-                    siloBuilder
-                        .UseLocalhostClustering()
-                        .Configure<ClusterOptions>(options =>
-                        {
-                            options.ClusterId = "bee.ctos";
-                            options.ServiceId = "PreShipmentRestacking";
-                        })
-                        .AddMemoryGrainStorageAsDefault()
-                        .ConfigureServices(services =>
-                        {
-                            services.AddServices(
-                                Path.Combine(Phenix.Core.AppRun.BaseDirectory, "Bee.CTOS.PreShipmentRestacking.Domain.dll"),
-                                allow: type =>
-                                {
-                                    Console.WriteLine($"装配 domain 服务：{type.Name}");
-                                    return true;
-                                });
-                        });
-                })
+                .UseOrleans(siloBuilder => siloBuilder
+                    .UseLocalhostClustering()
+                    .Configure<ClusterOptions>(options =>
+                    {
+                        options.ClusterId = "bee.ctos";
+                        options.ServiceId = "PreShipmentRestacking";
+                    })
+                    .AddMemoryGrainStorageAsDefault()
+                    .ConfigureServices(services => services
+                        .AddServices(
+                            Path.Combine(Phenix.Core.AppRun.BaseDirectory, "Bee.CTOS.PreShipmentRestacking.Domain.dll"),
+                            allow: type =>
+                            {
+                                Console.WriteLine($"装配 domain 服务：{type.Name}");
+                                return true;
+                            })
+                        .AddHttpClient("StrategyOptimizer")
+                            .ConfigureHttpClient((provider, client) =>
+                            {
+                                IConfiguration config = provider.GetRequiredService<IConfiguration>();
+                                client.BaseAddress = new Uri(config["AI:BaseUrl"] ?? "https://open.bigmodel.cn/api/paas/v4/chat/completions");
+                            })
+                    )
+                )
                 .UseConsoleLifetime()
                 .Build();
 

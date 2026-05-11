@@ -3,7 +3,7 @@
 namespace Bee.CTOS.PreShipmentRestacking.Abstractions
 {
     /// <summary>
-    /// 单贝整理（单个贝的重排服务的契约）
+    /// 单贝整理
     /// </summary>
     public interface IBayRestackingService : IGrainService
     {

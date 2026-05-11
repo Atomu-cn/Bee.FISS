@@ -6,7 +6,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAARABAAAABAAAAAABABBAAAACCAAAAAA4AQCECQQA=</HashCode>
+      <HashCode>AAACRABIAAAFAAAAABBABBBAAACCAAAAAA4AQCECQQA=</HashCode>
       <FileName>MoveOperation.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -33,6 +33,20 @@
       <HashCode>ACAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IBayRestackingService.cs</FileName>
       <NewMemberFileName>IBayRestackingActor.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Bee.CTOS.PreShipmentRestacking.Abstractions.IStrategyOptimizingGrain">
+    <Position X="3.5" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IStrategyOptimizingGrain.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Bee.CTOS.PreShipmentRestacking.Abstractions.IStrategyOptimizingService">
+    <Position X="0.5" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IStrategyOptimizingService.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Microsoft YaHei UI" Size="9" />

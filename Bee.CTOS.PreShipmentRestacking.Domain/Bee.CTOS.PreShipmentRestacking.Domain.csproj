@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Combinatorics" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.7" />
   </ItemGroup>
 
   <ItemGroup>
