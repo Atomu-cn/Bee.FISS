@@ -1,4 +1,4 @@
-﻿namespace Bee.CTOS.PreShipmentRestacking.Abstractions
+﻿namespace Bee.FISS.Abstractions
 {
     /// <summary>
     /// 箱位

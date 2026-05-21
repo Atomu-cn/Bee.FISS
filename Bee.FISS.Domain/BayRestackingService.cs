@@ -1,7 +1,7 @@
-﻿using Bee.CTOS.PreShipmentRestacking.Abstractions;
+﻿using Bee.FISS.Abstractions;
 using Phenix.Core.DependencyInjection;
 
-namespace Bee.CTOS.PreShipmentRestacking.Domain
+namespace Bee.FISS.Domain
 {
     /// <summary>
     /// 单贝整理

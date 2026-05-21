@@ -1,6 +1,6 @@
-﻿using Bee.CTOS.PreShipmentRestacking.Abstractions;
+﻿using Bee.FISS.Abstractions;
 
-namespace Bee.CTOS.PreShipmentRestacking.Domain
+namespace Bee.FISS.Domain
 {
     /// <summary>
     /// 贝内箱子

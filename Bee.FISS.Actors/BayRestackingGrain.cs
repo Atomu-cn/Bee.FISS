@@ -1,7 +1,7 @@
-﻿using Bee.CTOS.PreShipmentRestacking.Abstractions;
+﻿using Bee.FISS.Abstractions;
 using Microsoft.Extensions.Logging;
 
-namespace Bee.CTOS.PreShipmentRestacking.Actors
+namespace Bee.FISS.Actors
 {
     /// <summary>
     /// 单贝整理

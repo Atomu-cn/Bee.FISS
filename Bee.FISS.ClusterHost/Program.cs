@@ -5,7 +5,7 @@ using Orleans.Configuration;
 using Phenix.Core.DependencyInjection;
 using Serilog;
 
-namespace Bee.CTOS.PreShipmentRestacking
+namespace Bee.FISS
 {
     class Program
     {

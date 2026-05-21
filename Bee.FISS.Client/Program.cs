@@ -1,11 +1,11 @@
-﻿using Bee.CTOS.PreShipmentRestacking.Abstractions;
+﻿using Bee.FISS.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Orleans.Configuration;
 using Serilog;
 
-namespace Bee.CTOS.PreShipmentRestacking.Client
+namespace Bee.FISS.Client
 {
     class Program
     {

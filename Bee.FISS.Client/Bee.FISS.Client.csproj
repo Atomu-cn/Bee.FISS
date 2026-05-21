@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bee.CTOS.PreShipmentRestacking.Abstractions\Bee.CTOS.PreShipmentRestacking.Abstractions.csproj" />
+    <ProjectReference Include="..\Bee.FISS.Abstractions\Bee.FISS.Abstractions.csproj" />
     <ProjectReference Include="..\Phenix.Core\Phenix.Core_PgSQL.csproj" />
   </ItemGroup>
 
