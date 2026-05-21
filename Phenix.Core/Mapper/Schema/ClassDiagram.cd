@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Core.Mapper.Schema.Column">
+    <Position X="11.25" Y="5.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EBBEoIDhAMJo8JmEgMELGGYYYhKCJpAEAAEAIAJQYCE=</HashCode>
+      <FileName>Mapper\Schema\Column.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+      <Property Name="TableColumn" />
+      <Property Name="ForeignKey" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="UniqueIndexes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.MetaData">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AhEAEhIAQMBAEAAgACEAYEAAIACUAAQAAKCAogIQQAA=</HashCode>
+      <FileName>Mapper\Schema\MetaData.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tables" />
+      <Property Name="Views" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.Index">
+    <Position X="4" Y="7.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAoACAAAACIAAAAAAAAAQAgAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapper\Schema\Index.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.Sheet">
+    <Position X="6.25" Y="0.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>UOAAqQCguBCkAAQEwAEEQARSAAAAgIoRAoEAQBnAAEo=</HashCode>
+      <FileName>Mapper\Schema\Sheet.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Columns" />
+      <Property Name="PrimaryKeyColumns" />
+      <Property Name="ForeignKeyColumns" />
+      <Property Name="OriginateTeamsColumns" />
+      <Property Name="TimestampColumns" />
+      <Property Name="RouteColumns" />
+      <Property Name="Handles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.Table">
+    <Position X="4.25" Y="4" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAAgCAAACAgAAgAAAAAAACAACUAAAAQBAAAAIAQCA=</HashCode>
+      <FileName>Mapper\Schema\Table.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ForeignKeys" />
+      <Property Name="DetailForeignKeys" />
+      <Property Name="Indexes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.View">
+    <Position X="3.75" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAACAAAAAAAAARAADAAACAAAAQBCAAAAAAAA=</HashCode>
+      <FileName>Mapper\Schema\View.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tables" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.Field">
+    <Position X="8.5" Y="11.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAAAAoAAKAAAFoAEwAFAAAAAAIAAAIAAAAAAAQAAAEA=</HashCode>
+      <FileName>Mapper\Schema\Field.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OwnerSheet" />
+      <Property Name="Property" />
+      <Property Name="Column" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.Property">
+    <Position X="5.75" Y="11.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAggAAKBChFpAEgAFAACAEAYAAAICAAAAAAAAAgAA=</HashCode>
+      <FileName>Mapper\Schema\Property.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OwnerSheet" />
+      <Property Name="Field" />
+      <Property Name="ColumnAttribute" />
+      <Property Name="Column" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.ForeignKey">
+    <Position X="0.5" Y="6.25" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IAAAoACAAgAAIgBAAAJAQAQAAAAAAAAAAAEABQAAAIA=</HashCode>
+      <FileName>Mapper\Schema\ForeignKey.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+      <Property Name="Table" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.ColumnAttribute">
+    <Position X="2.5" Y="11.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapper\Schema\ColumnAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Mapper.Schema.SheetAttribute">
+    <Position X="0.5" Y="11.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Mapper\Schema\SheetAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

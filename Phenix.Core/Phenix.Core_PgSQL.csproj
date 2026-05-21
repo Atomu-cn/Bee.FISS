@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Version>7.10.67</Version>
+		<AssemblyVersion>7.10.67.0313</AssemblyVersion>
+		<FileVersion>7.10.67.0313</FileVersion>
+		<Description>Phenix Framework 7.10 for .NET 10</Description>
+		<Authors>ming</Authors>
+		<DefineConstants>TRACE;PgSQL</DefineConstants>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<AssemblyName>Phenix.Core</AssemblyName>
+		<RootNamespace>Phenix.Core</RootNamespace>
+		<Copyright>Copyright © 2007, 2026 Phenixヾ Studio</Copyright>
+		<Company />
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>..\Bin_PgSQL\</OutputPath>
+		<DocumentationFile>..\Bin_PgSQL\Phenix.Core.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>..\Bin_PgSQL\</OutputPath>
+		<DocumentationFile>..\Bin_PgSQL\Phenix.Core.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="Npgsql" Version="10.0.2" />
+		<PackageReference Include="Serilog.Extensions.Hosting" Version="10.0.0" />
+		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Phenix.Core.db">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Phenix.Core.Init.db">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties Reactor_Enabled="1" />
+		</VisualStudio>
+	</ProjectExtensions>
+
+</Project>

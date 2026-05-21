@@ -1,0 +1,268 @@
+Phenix.NET7
+Copyright © 2007, 2026 Phenixヾ Studio
+使用开发框架的目的，首要的是对软件过程的有效管控，让团队保持一致的编写风格，提升协作效率、开发速度和代码质量，保证软件产品的可维护性
+
+
+20190522
+1，发布轻量级的持久化引擎，支持Oracle、MySQL（20200510后支持PostgreSQL，20200707后支持SQL Server），封装ADO.NET，可同时操作多个（主库+分库）数据库
+2，提供数据库的数据字典的查看方法，示例见Demo.Phenix.Core.Data.Schema
+3，提供存放日志到本地或数据库的通用方法，示例见Demo.Phenix.Core.Log.EventLog
+4，提供系统唯一的序列号，支持多线程、多进程、分布式应用，示例见Demo.Phenix.Core.Data.Sequence
+5，提供连续递增的序列号，支持多线程、多进程、分布式应用，示例见Demo.Phenix.Core.Data.Increment
+6，提供直接读取数据库数据DataReader功能，示例见Demo.Phenix.Core.Data.Common.DataReader
+
+
+20190715
+1，持久化引擎支持在实体属性上打System.ComponentModel.DataAnnotations.ValidationAttribute派生标签，提交对象/属性时会自动完成属性的有效性验证（验证失败抛出ValidationException）
+      以下默认规范会自动添加，不必手工打标签：
+          System.ComponentModel.DataAnnotations.RequiredAttribute，前提是属性值不允许为空的规范是按照表字段NOT NULL的话；
+          System.ComponentModel.DataAnnotations.StringLengthAttribute，前提是字符串属性值长度要求是按照表字段长度规范的话；
+     一旦手工打上标签，以上默认规范会被覆盖掉
+2，持久化引擎支持在实体上实现System.ComponentModel.DataAnnotations.IValidatableObject接口，也可以实现Phenix.Core.Data.Validity.IValidation接口，提交对象时自动完成对象的有效性验证（验证失败抛出ValidationException）
+3，提供实体类代码生成工具Phenix.Tools.EntityBuilder工程源码
+
+
+20190804
+1，提供WebAPI服务端Phenix.Services.Host工程源码
+2，提供WebAPI服务的phenix7.js客户端源码，见\Phenix.Services.Host\wwwroot\lib目录，测试代码见\Phenix.Services.Host\wwwroot\test目录
+
+
+20190807
+1，Phenix.Services.Host可部署在KestrelServer+Docker环境中
+2，Phenix.Core.Data.Database和Phenix.Core.Data.Common.DbCommandHelper的调用存储过程函数ExecuteStoredProc，返回值改为IDictionary<string, object>类型，为存储过程的调用结果集"参数名-参数值"，如需转换为JSON格式请调用Phenix.Core.Reflection.Utilities.JsonSerialize(result)
+3，增补Phenix.Core.Data.Schema.Table、Phenix.Core.Data.Schema.View、Phenix.Core.Data.Model.EntityBase<T>的查询函数，可读取DataReader内容返回实体对象或JSON格式的查询结果
+4，增补Phenix.Core.Reflection.Utilities的JsonSerialize()函数，直接将DbDataReader导出JSON格式的查询结果，JSON格式的属性名为数据源的表/视图的字段名/别名
+
+
+20190905
+1，提供Phenix.Client工程，含HttpClient类Checkin、Logon、ChangePassword、Sequence、Increment、Message、UploadFile、DownloadFile、EventLog、Call等系列函数，示例代码见：Demo.Phenix.Client.HttpClient_Message、Demo.Phenix.Client.HttpClient_File
+2，提供Phenix.Business工程，含Phenix.Business.UndoableBase<T>可撤销编辑的实体基类，为实体对象的编辑操作提供单级回滚的功能，示例见Demo.Phenix.Business.UndoableBase
+3，约定时间戳字段以'_TIMESTAMP'后缀命名
+4，增补Phenix.Core.Data.Model.EntityBase<T>功能具备乐观锁机制，Update()和UpdateRecord()函数提供checkTimestamp参数(默认true)，保证在分布式架构下新数据不会被脏数据覆盖（会抛出Phenix.Core.Data.Validity.OutdatedDataException）
+
+
+20190911
+1，除了主键（后缀'_ID'）、制单人（后缀'_ORIGINATOR'）、制单时间（后缀'_ORIGINATE_TIME'）、制单团体（后缀'_ORIGINATE_TEAMS'）等水印字段外，约定系统自定义的水印字段用后缀'_WM'进行标识，以便在新增记录以后的历次修改中，这些字段都不会再被改动（即使编辑过实体对象也不会被持久化）
+2，提供Phenix.Business.BusinessBase<T>可操作聚合树的业务基类，为聚合根对象的整颗聚合树提供编辑操作和持久化的功能
+3，一旦为聚合树中某个节点的业务对象打上删除标记（IsSelfDeleted=true），调用SaveDepth()函数持久化时，只要数据库中存在物理外键，将会对它及其下的所有从业务对象（包括未加载到内存）的记录做级联删除
+
+
+20190920
+1，规定将WebAPI服务的Controller代码编写在各自的工程里，程序集的命名以"*.Plugin.dll"作为后缀，会被Phenix.Services.Host自动加载并装配到ApplicationParts中
+2，发布Phenix.Services.Host时，可自动将Docker相关的文件写入到发布目录（Publish目录）中，方便部署到Docker
+3，提供用户消息PULL和PUSH两套方法，具体见测试网页user-message.html
+
+
+20191013
+1，升级至 for .net core 3.0，开发工具 Visual Studio 2019 16.3.x及以上版本
+2，提供服务接口IFileService以扩展系统自身的个性化的文件上传下载功能，框架代码见Phenix.Services.Extend工程里的FileService类，测试网页file.html
+
+
+20191021
+1，phenix7.js和Phenix.Client.HttpClient类的Call函数，补充'是否加密上传数据'、'是否解密返回数据'参数
+2，提供业务类代码生成工具Phenix.Tools.BusinessBuilder工程源码
+
+
+20191101
+1，提供非对称加密的公钥私钥生成工具Phenix.Tools.CreateKeyPair工程源码
+2，数据库连接串配置记录存放在Phenix.Core.db（推荐使用SQLite Expert工具打开）库文件PH7_Database表里，以便在程序运行时无需通过编写代码注册数据库入口，可直接获取Phenix.Core.Data.Database对象，具体配置方法见示例记录的Remark字段内容
+
+
+20191205
+1，提供Phenix.Actor工程源码，封装Orleans3的客户端和服务集群配置方法和入口，以及一套轻量级的Actor开发框架，支持并行和分布式大规模服务架构设计
+2，规定将Orleans服务的Grain及其接口代码编写在各自的工程里，程序集的命名以"*.Plugin.dll"作为后缀，默认会被Phenix.Services.Host自动加载并装配到ApplicationParts中
+3，提供Phenix.Services.Plugin工程源码，包含用户身份验证和管理的UserGrain类、IUserGrain接口，及其代理UserGrain服务的UserProxy类，通过UserProxyFactory类注册到Phenix.Core的权限控制模块，注册方法（见Phenix.Services.Host）：
+         Phenix.Core.Security.Identity.RegisterFactory(new Phenix.Services.Plugin.UserProxyFactory());
+
+
+20191227
+1，提供《Phenix.Services.Host.分布式服务架构.pptx》，讲解WebAPI（应用）服务和Orleans（领域）服务的搭建和部署方法
+2，提供Phenix.Core.AppSettings应用系统配置工具，配置项定义方法参考Phenix.Services.Host的OrleansConfig类，系统部署实施时可根据需要在Database.Default或Phenix.Core.db库文件PH7_AppSettings表里做配置
+
+
+20200205
+1，提供Phenix.Algorithm工程源码，含ZeroOneKnapsack类的0-1背包算法，支持"打包至少占有一定容量"、"打包至少占有一定容量且不低于一定价值"、"趋向最小规格且不考虑打包价值/只要满足最低打包价值"等约束条件，用法见Demo.Phenix.Algorithm.CombinatorialOptimization.ZeroOneKnapsack工程
+2，为Phenix.Algorithm工程添加BunchKnapsack类，从M支集束的N个物品中挑选出一个尽可能整支和价值高的子集使其装满容量为W且允许有一定超载范围的背包
+
+
+20200217
+1，为Phenix.Actor工程封装Orleans Streams功能，见StreamProviderProxy类
+2，为Phenix.Actor工程添加StreamEntityGrainBase类，可支持网格化的消息发布和订阅机制
+
+
+20200220
+1，提供《Phenix.Services.Host.分布式服务插件.pptx》，讲解WebAPI（应用）服务和Orleans（领域）服务的设计和开发方法
+2，重构持久化引擎，强调聚合和聚合根的领域对象模型，在采取分库分表策略的数据库部署场景下，一棵聚合树里的所有对象都随聚合根对象一起锁定在某个分库上进行持久化，持久化的路由算法是取自聚合根对象里一个映射'_RU'后缀字段的属性值经HASH取余得到具体的分库ID
+
+
+20200408
+1，为Phenix.Services.Host工程添加Dashboard插件，可在浏览器上打开可视化Silo监控工具：http://localhost:8080/
+2，完善Phenix.Core.Log.EventLog功能，可防止连续写同一message造成本地日志瞬时暴涨的问题，中断重复日志强度阈值由静态属性BreakRepeatIntensityPerMinute控制，缺省为重复日志超过每分钟6000次
+3，完善用户身份验证功能，可防止同一用户高频访问服务，中断服务请求强度阈值由Phenix.Core.Security.User的BreakRequestIntensityPerMinute静态属性控制，缺省为服务请求超过每分钟6000次
+4，为Phenix.Actor工程添加TreeEntityGrainBase、StreamTreeEntityGrainBase类，以支持树状结构Kernel的处理
+5，丰富Phenix.Services.Plugin工程功能，注册用户可搭建起组织架构成为公司管理员
+
+
+20200510
+1，丰富Phenix.Algorithm工程的ZeroOneKnapsack、BunchKnapsack功能，可支持超大规格（容量）背包的运算
+2，持久化引擎支持PostgreSQL，解决方案Phenix.NET7_PgSQL.sln，程序集输出目录Bin_PgSQL
+
+
+20200516
+1，提供Phenix.Core.Data.Schema.Column配置项FieldNameByTrimColumnName(默认true)，可根据自己Build Entity的需要设置类的字段名和属性名取自被整理(如果第PrefixCount(默认2)位后是"_"则剔去其及之前的字符)的表/视图字段名
+2，丰富Phenix.Services.Plugin工程功能，公司管理员可为自己员工注册用户，为其配上所在团队（自己公司组织架构上的某个节点）、所担岗位，锁定/解锁、注销/恢复
+
+
+20200523
+1，提供Phenix.Core.Mapper.DataAnnotations.ValidationException数据验证异常类，用于将其ValidationMessage属性抛到客户端，客户端在拦截到HTTP状态409后，利用ValidationMessage属性的MessageType、StatusCode（取1000以上的整型值）分类处理异常消息Hint
+2，增补Phenix.Core.Net.Api.ControllerBase的SelectRecord()函数，直接打包到分页查询结果DataPageInfo对象，DataPageInfo的DataName为实体类名，DataSize为数据量，PageNo为页码，PageSize为分页大小，PageBody为当前页JSON格式的记录数据
+
+
+20200603
+1，为持久化引擎添加条件表达式动态传参的功能，涉及Phenix.Core.Data.Schema.Sheet的UpdateEntity、UpdateRecord、DeleteRecord、SelectEntity、SelectRecord、RecordCount等函数，以及Phenix.Core.Data.Model.EntityBase<T>、Phenix.Core.Net.Api.ControllerBase的相关功能，紧随着条件表达式（criteriaLambda/criteriaExpression）后面都会有一个条件对象（criteria）的参数（可为JSON格式字符串/属性-属性值Dictionary）
+2，Phenix.Core.Data.Schema.Sheet、Phenix.Core.Net.Api.ControllerBase的SelectRecord可按照接口定义（TSub）返回指定的属性值记录，而不是整个实体对象打包到JSON中
+3，修正身份验证失败（比如登录口令输错）时浏览器F12提示"Origin null is not allowed by Access-Control-Allow-Origin"的问题
+
+
+20200707
+1，持久化引擎支持SQL Server，解决方案Phenix.NET7_MsSQL.sln，程序集输出目录Bin_MsSQL
+2，添加对WebAPI传入参数的验证，返回客户端HTTP状态为400的报文体是ValidationMessage对象，其StatusCode属性为400，Hint属性为验证消息
+3，Phenix.Core.Data.Model.EntityBase<T>支持跨域传递并持久化，旧版实体类需升级（为初始函数添加 dataSourceKey 和 id 参数）或重新生成代码，类似这样：
+        [Newtonsoft.Json.JsonConstructor]
+        private User(string dataSourceKey, long id,  string name)
+            : base(dataSourceKey, id)
+        {
+            _name = name;
+        }
+
+
+20200718
+1，调整表名/视图名/字段名映射规则，只要名称里出现的第一个'_'是在第1-4位之间，'_'及其前面的字符串都算作是前缀
+2，提供统一的服务访问入口：/api/service/portal，代码见Phenix.Services.Plugin.Service.PortalController，能让客户端直接访问服务对象（建议用Command作为类名后缀）的公共静态函数，访问授权的控制方法与控制器上的保持一致，同样可以在这些函数上打[AllowAnonymous]（或实现IAllowAnonymous的标签）、[Authorize]（或实现IAuthorizeData的标签）、继承自Phenix.Core.Net.Filters.AuthorizationFilter的标签，访问授权的角色配置是在第一次被访问时自动保存在PH7_Controller_Role表中，获取方法参考Phenix.Services.Plugin.Security.RoleController，角色的动态配置可自行开发功能来编辑PH7_Controller_Role表
+3，为Phenix.Actor工程添加GrainBase、StreamGrainBase类，以提供Grain最基本的通用功能
+
+
+20200808
+1，将配置库初始化表从Phenix.Core.db迁移到Phenix.Core.Init.db
+2，重构Phenix.Services.Extend工程，添加UserService以支持UserGrain功能扩展，添加UserMessageService以支持GroupMessageHub、UserMessageHub功能扩展
+
+
+20200825
+1，完善用户身份验证功能，提供Phenix.Core.Security.User的AllowMultiSessionRequest属性（默认true）的配置项，可控制是否允许多处会话（进程）发起请求，与AllowMultiAddressRequest属性（默认true）的配置项的区别是后者控制是否允许多处终端（IP地址）发起请求
+2，为Phenix.Actor工程添加在Grain的调用链上传递用户身份信息的功能，Grain的接口需继承ISecurityContext才能实现本功能，ISecurityContext不能被Grain直接继承
+3，为Phenix.Services.Plugin工程添加GroupMessageHub功能，前后端（前端为SignalR.Client）可订阅Grain等服务端对象推送出来的分组消息，消息推送写法参考：
+        await ClusterClient.Default.GetStreamProvider().GetStream<string>(ActorConfig.GroupMessageStreamId, 组名).OnNextAsync(消息);
+
+
+20200915
+1，为Phenix.Actor工程添加在Grain的调用链上记录调用和错误日志的功能，Grain的接口需继承ITraceLogContext才能实现本功能，ITraceLogContext不能被Grain直接继承
+2，完善Phenix.Core.Log.EventLog功能，弃用PH7_EventLog表，改为按季度分为4个表（PH7_EventLog_1~4）记录当前季度发生的日志，下一季度用的日志表在使用之前会被自动清空
+
+
+20201109
+1，升级至 for .net 5，开发工具 Visual Studio 2019 16.8.x及以上版本
+2，Phenix.Core.AppSettings应用系统配置工具支持中英文切换，写入的中英文用‘|’分隔，读取时会判断Thread.CurrentThread.CurrentCulture.Name是否为'zh-'截取前半截还是后半截
+
+
+20201210
+1，提供《Phenix.NET7.搭建开发环境》
+2，提供《Phenix.NET7.服务部署方法》
+3，提供《Phenix.NET7.持久层开发方法》
+4，持久化引擎添加映射标签SheetAttribute和ColumnAttribute以支持未按规范设计的数据库表结构
+5，优化Phenix.Tools.BusinessBuilder和Phenix.Tools.EntityBuilder工程，默认都为实体或业务类打上映射标签
+
+
+20210301
+1，提供适配企业级SaaS系统的权限管理模块，包括企业会员的注册功能、管理自己公司的组织架构、添加和编辑自己员工的登录权限
+2，优化用户身份验证功能
+
+
+20210415
+1，优化Phenix.Tools.BusinessBuilder和Phenix.Tools.EntityBuilder工程，实体或业务类都继承自抽象基类，由抽象基类映射数据库表/视图结构
+2，优化用户身份验证功能
+
+
+20210622
+1，更新《Phenix.NET7.服务部署方法》
+2，更新《Phenix.NET7.搭建开发环境》
+3，整理Phenix.Services.XXX工程结构
+
+
+20210807
+1，持久化引擎添加InsertOrUpdate功能以支持Put服务请求
+2，提供Phenix.TPT.XXX工程源码，TPT为Teamwork Project Tracker系统名缩写，是一款SAAS版的项目跟踪管理工具
+
+
+20210830
+1，丰富Phenix.Services.Plugin工程功能，提供Email发送Grain
+2，优化Phenix.Services.Plugin工程的用户注册和找回口令功能
+3，强化用户身份验证功能
+
+
+20210920
+1，优化用户访问授权功能
+2，升级Phenix.TPT.XXX工程源码
+
+
+20211116
+1，优化数据类型转换功能
+2，实体类弃用Newtonsoft.Json.JsonConstructor
+3，升级Phenix.TPT.XXX工程源码
+
+
+20211212
+1，为Phenix.Actor工程添加Plugin功能
+2，为Phenix.Services.Host工程添加Host启动时加载Plugin功能
+
+
+20220401
+1，升级至 for .net 6，开发工具 Visual Studio 2022
+2，梳理解决方案，以支持 dapr
+3，从Phenix.Core拆分出Phenix.Net工程、Phenix.Mapper工程
+4，开源Phenix.Core工程、Phenix.Net工程
+
+
+20220713
+1，日志管理更换为Serilog+ExceptionLess
+2，在 Visual Studio 2022上重建Phenix.TPT.WebApp工程
+
+
+20221019
+1，为Phenix.Algorithm工程添加众数重数统计算法
+2，为Phenix.Actor工程添加自动注册Grain服务及其客户端代理的功能，这些类需打上ServiceAttribute标签
+3，完善Phenix.Core工程
+4，完善Phenix.Services.Host工程
+5，使用 Phenix.Core.Net.HttpContext.Current 静态属性可获取 HttpContextAccessor 服务
+
+
+20231019
+AppSettings存取的配置值，向前兼容不了的时候可以通过升版本的方法覆盖掉旧版数据，避免因逻辑错乱造成新版系统发布失败的发生，只需在使用配置的属性上/属性所在类上/枚举属性的类型上/存取配置值的函数，打上AppSettingVersionAttribute标签，一旦有不能向前兼容的情况发生，就将版本号改为全新的即可
+
+
+20240514
+增补Phenix.Core工程的DbConnectionHelper、Database的数据库操作函数
+
+
+20240518
+新增Phenix.Core.Reflection的InstanceInfo类，缓存DynamicInstanceFactory生成的委托函数
+
+
+20240520
+升级至 for .net 8，开发工具 Visual Studio 2022
+
+
+20241121
+整理《Phenix.Core_持久层框架使用方法》
+
+
+20241223
+整理ExceptionHandlerMiddleware代码逻辑
+
+
+20260203
+升级至 for .net 10，开发工具 Visual Studio 2026
+
+20260313
+整理Phenix.Core.DependencyInjection目录，添加ServiceExtensions服务扩展，用于注册动态加载服务
+
+
