@@ -3,17 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.3.11415.281
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bee.CTOS.PreShipmentRestacking.Abstractions", "Bee.CTOS.PreShipmentRestacking.Abstractions\Bee.CTOS.PreShipmentRestacking.Abstractions.csproj", "{76A29FA7-4A55-E32C-FF36-0089E794F8C5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bee.CTOS.PreShipmentRestacking.Actors", "Bee.CTOS.PreShipmentRestacking.Actors\Bee.CTOS.PreShipmentRestacking.Actors.csproj", "{ED91E356-3D0D-2C4F-E78E-07EF82370345}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bee.CTOS.PreShipmentRestacking.ClusterHost", "Bee.CTOS.PreShipmentRestacking.ClusterHost\Bee.CTOS.PreShipmentRestacking.ClusterHost.csproj", "{4A225766-A18F-0D94-FF7B-CDE889A9B72C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bee.CTOS.PreShipmentRestacking.Domain", "Bee.CTOS.PreShipmentRestacking.Domain\Bee.CTOS.PreShipmentRestacking.Domain.csproj", "{1FCE5B15-8D9C-EE48-5B4D-76CAA6733756}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phenix.Core_PgSQL", "Phenix.Core\Phenix.Core_PgSQL.csproj", "{B84D7179-6869-B324-ABD0-AB35EBAC05C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bee.CTOS.PreShipmentRestacking.Client", "Bee.CTOS.PreShipmentRestacking.Client\Bee.CTOS.PreShipmentRestacking.Client.csproj", "{B09B7419-EB65-2F52-F68C-66226DB368EB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{8AAC7859-1D66-483B-A955-7B578711C960}"
 EndProject
@@ -23,30 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{76A29FA7-4A55-E32C-FF36-0089E794F8C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76A29FA7-4A55-E32C-FF36-0089E794F8C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76A29FA7-4A55-E32C-FF36-0089E794F8C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76A29FA7-4A55-E32C-FF36-0089E794F8C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED91E356-3D0D-2C4F-E78E-07EF82370345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED91E356-3D0D-2C4F-E78E-07EF82370345}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED91E356-3D0D-2C4F-E78E-07EF82370345}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED91E356-3D0D-2C4F-E78E-07EF82370345}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A225766-A18F-0D94-FF7B-CDE889A9B72C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A225766-A18F-0D94-FF7B-CDE889A9B72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A225766-A18F-0D94-FF7B-CDE889A9B72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A225766-A18F-0D94-FF7B-CDE889A9B72C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1FCE5B15-8D9C-EE48-5B4D-76CAA6733756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1FCE5B15-8D9C-EE48-5B4D-76CAA6733756}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1FCE5B15-8D9C-EE48-5B4D-76CAA6733756}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1FCE5B15-8D9C-EE48-5B4D-76CAA6733756}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B84D7179-6869-B324-ABD0-AB35EBAC05C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B84D7179-6869-B324-ABD0-AB35EBAC05C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B84D7179-6869-B324-ABD0-AB35EBAC05C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B84D7179-6869-B324-ABD0-AB35EBAC05C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B09B7419-EB65-2F52-F68C-66226DB368EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B09B7419-EB65-2F52-F68C-66226DB368EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B09B7419-EB65-2F52-F68C-66226DB368EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B09B7419-EB65-2F52-F68C-66226DB368EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

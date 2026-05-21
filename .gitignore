@@ -360,12 +360,7 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
-FodyWeavers.xsd
-/ITOS.IGV.Plugin
-/Phenix.StorageAlgorithm
-/Phenix.StorageAlgorithm.Test
 /Bin_MsSQL
 /Bin_MySQL
 /Bin_ORA
 /Bin_PgSQL
-/Phenix.StorageAlgorithm.sln
