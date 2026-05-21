@@ -360,8 +360,6 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
-.gitattributes
-.gitignore
 /Bin_MsSQL
 /Bin_MySQL
 /Bin_ORA
