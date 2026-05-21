@@ -5,7 +5,7 @@ using Orleans.Configuration;
 using Phenix.Core.DependencyInjection;
 using Serilog;
 
-namespace Bee.FISS
+namespace Bee.ISS
 {
     class Program
     {

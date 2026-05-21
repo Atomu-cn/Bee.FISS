@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bee.FISS.Abstractions\Bee.FISS.Abstractions.csproj" />
+    <ProjectReference Include="..\Bee.ISS.Abstractions\Bee.ISS.Abstractions.csproj" />
     <ProjectReference Include="..\Phenix.Core\Phenix.Core_PgSQL.csproj" />
   </ItemGroup>
 

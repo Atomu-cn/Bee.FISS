@@ -18,9 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bee.FISS.Abstractions\Bee.FISS.Abstractions.csproj" />
-    <ProjectReference Include="..\Bee.FISS.Actors\Bee.FISS.Actors.csproj" />
-    <ProjectReference Include="..\Bee.FISS.Domain\Bee.FISS.Domain.csproj" />
+    <ProjectReference Include="..\Bee.ISS.Abstractions\Bee.ISS.Abstractions.csproj" />
+    <ProjectReference Include="..\Bee.ISS.Actors\Bee.ISS.Actors.csproj" />
+    <ProjectReference Include="..\Bee.ISS.Domain\Bee.ISS.Domain.csproj" />
     <ProjectReference Include="..\Phenix.Core\Phenix.Core_PgSQL.csproj" />
   </ItemGroup>
 

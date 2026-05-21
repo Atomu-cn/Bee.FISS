@@ -1,7 +1,7 @@
-﻿using Bee.FISS.Abstractions;
+﻿using Bee.ISS.Abstractions;
 using Microsoft.Extensions.Logging;
 
-namespace Bee.FISS.Actors
+namespace Bee.ISS.Actors
 {
     /// <summary>
     /// 单贝整理

@@ -1,6 +1,6 @@
 ﻿using Orleans.Services;
 
-namespace Bee.FISS.Abstractions
+namespace Bee.ISS.Abstractions
 {
     /// <summary>
     /// 单贝整理

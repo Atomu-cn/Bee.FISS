@@ -1,7 +1,7 @@
-﻿using Bee.FISS.Abstractions;
+﻿using Bee.ISS.Abstractions;
 using Phenix.Core.DependencyInjection;
 
-namespace Bee.FISS.Domain
+namespace Bee.ISS.Domain
 {
     /// <summary>
     /// 单贝整理

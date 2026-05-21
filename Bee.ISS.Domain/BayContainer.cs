@@ -1,6 +1,6 @@
-﻿using Bee.FISS.Abstractions;
+﻿using Bee.ISS.Abstractions;
 
-namespace Bee.FISS.Domain
+namespace Bee.ISS.Domain
 {
     /// <summary>
     /// 贝内箱子
